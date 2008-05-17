@@ -313,7 +313,6 @@
 														<int key="NSCellFlags2">134217728</int>
 														<string key="NSContents">Pickup/coin</string>
 														<reference key="NSSupport" ref="29"/>
-														<reference key="NSControlView"/>
 														<int key="NSButtonFlags">-2035007233</int>
 														<int key="NSButtonFlags2">173</int>
 														<string key="NSAlternateContents"/>
@@ -1683,6 +1682,7 @@
 					<string>sampleRate</string>
 					<string>bitDepth</string>
 					<string>name</string>
+					<string>waveType</string>
 				</object>
 				<bool key="NSEditable">YES</bool>
 				<bool key="NSAutomaticallyPreparesContent">YES</bool>
@@ -2349,14 +2349,6 @@
 					<int key="connectionID">100326</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">add:</string>
-						<reference key="source" ref="842772338"/>
-						<reference key="destination" ref="245984149"/>
-					</object>
-					<int key="connectionID">100327</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">selectedTag: selection.bitDepth</string>
 						<reference key="source" ref="532120011"/>
@@ -2387,6 +2379,30 @@
 						</object>
 					</object>
 					<int key="connectionID">100332</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">generateSound:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="245984149"/>
+					</object>
+					<int key="connectionID">100335</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">selectedIndex: selection.waveType</string>
+						<reference key="source" ref="634524671"/>
+						<reference key="destination" ref="842772338"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="634524671"/>
+							<reference key="NSDestination" ref="842772338"/>
+							<string key="NSLabel">selectedIndex: selection.waveType</string>
+							<string key="NSBinding">selectedIndex</string>
+							<string key="NSKeyPath">selection.waveType</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">100339</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3746,14 +3762,14 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{413, 273}, {595, 533}}</string>
+					<string>{{-666, -95}, {595, 533}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<integer value="0" id="6"/>
-					<reference ref="6"/>
-					<string>{{413, 273}, {595, 533}}</string>
+					<integer value="0" id="8"/>
+					<reference ref="8"/>
+					<string>{{-666, -95}, {595, 533}}</string>
 					<reference ref="5"/>
 					<string>{{201, 387}, {507, 413}}</string>
-					<integer value="0" id="8"/>
+					<reference ref="8"/>
 					<reference ref="8"/>
 					<string>{639, 389}</string>
 					<string>{639, 389}</string>
@@ -3781,7 +3797,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100332</int>
+			<int key="maxID">100339</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3789,6 +3805,10 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">CfxrDocument</string>
 					<string key="superclassName">NSPersistentDocument</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">generateSound:</string>
+						<string key="NS.object.0">id</string>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">CfxrDocument.h</string>

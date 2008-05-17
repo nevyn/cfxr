@@ -1,0 +1,4 @@
+sdl port by mjau
+
+bugfix edition!
+thanks to vegard for save fix =)

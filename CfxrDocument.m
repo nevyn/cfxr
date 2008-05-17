@@ -7,6 +7,7 @@
 //
 
 #import "CfxrDocument.h"
+#import "Sound.h"
 
 @implementation CfxrDocument
 
@@ -27,7 +28,25 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)windowController 
 {
     [super windowControllerDidLoadNib:windowController];
-    // user interface preparation code
+    
+	[self generateSoundFromCategory:@"Empty"];
 }
+
+
+-(IBAction)generateSound:(id)sender;
+{
+	[self generateSoundFromCategory:[[sender selectedCell] title]];
+}
+
+-(void)generateSoundFromCategory:(NSString*)category;
+{
+	static int n = 1;
+	Sound *sound = [NSEntityDescription insertNewObjectForEntityForName:@"Sound"
+												 inManagedObjectContext:[self managedObjectContext]];
+	[sound generateParamsFromCategory:category];
+	sound.name = [NSString stringWithFormat:@"%03d %@", n++, category];
+	
+}
+
 
 @end

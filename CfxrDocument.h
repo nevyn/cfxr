@@ -12,4 +12,7 @@
 @interface CfxrDocument : NSPersistentDocument {
 }
 
+-(IBAction)generateSound:(id)sender;
+
+-(void)generateSoundFromCategory:(NSString*)category;
 @end
