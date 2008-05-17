@@ -8,17 +8,10 @@
 
 #import "CfxrDocument.h"
 #import "Sound.h"
+#import "Playback.h"
+
 
 @implementation CfxrDocument
-
-- (id)init 
-{
-    self = [super init];
-    if (self != nil) {
-        // initialization code
-    }
-    return self;
-}
 
 - (NSString *)windowNibName 
 {
@@ -29,23 +22,37 @@
 {
     [super windowControllerDidLoadNib:windowController];
     
-	[self generateSoundFromCategory:@"Empty"];
+	if([[soundsController arrangedObjects] count] == 0)
+		[self generateSoundFromCategory:@"Empty"];
+	
+	[Playback playback]; // Nudge Playback class to have it initialize
+	
 }
-
 
 -(IBAction)generateSound:(id)sender;
 {
 	[self generateSoundFromCategory:[[sender selectedCell] title]];
 }
 
--(void)generateSoundFromCategory:(NSString*)category;
+-(Sound*)generateSoundFromCategory:(NSString*)category;
 {
-	static int n = 1;
 	Sound *sound = [NSEntityDescription insertNewObjectForEntityForName:@"Sound"
 												 inManagedObjectContext:[self managedObjectContext]];
 	[sound generateParamsFromCategory:category];
-	sound.name = [NSString stringWithFormat:@"%03d %@", n++, category];
 	
+	const int n = [[soundsController arrangedObjects] count] + 1;
+	sound.name = [NSString stringWithFormat:@"%03d %@", n, category];
+	
+	[soundsController setSelectedObjects:[NSArray arrayWithObject:sound]];
+	[[Playback playback] play:sound];
+	return sound;
+}
+
+-(IBAction)play:(id)sender;
+{
+	Sound *s = [[soundsController selectedObjects] objectAtIndex:0];
+	[[Playback playback] play:s];
+
 }
 
 

@@ -149,7 +149,7 @@
 																		</object>
 																	</object>
 																	<double key="NSRowHeight">1.400000e+01</double>
-																	<int key="NSTvFlags">-700448768</int>
+																	<int key="NSTvFlags">-968884224</int>
 																	<int key="NSColumnAutoresizingStyle">4</int>
 																	<int key="NSDraggingSourceMaskForLocal">15</int>
 																	<int key="NSDraggingSourceMaskForNonLocal">0</int>
@@ -2404,6 +2404,30 @@
 					</object>
 					<int key="connectionID">100339</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">appDelegate</string>
+						<reference key="source" ref="842772338"/>
+						<reference key="destination" ref="512844837"/>
+					</object>
+					<int key="connectionID">100340</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">soundsController</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="842772338"/>
+					</object>
+					<int key="connectionID">100341</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">play:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="854347337"/>
+					</object>
+					<int key="connectionID">100342</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3614,6 +3638,7 @@
 					<string>100233.IBPluginDependency</string>
 					<string>100234.IBPluginDependency</string>
 					<string>100235.IBPluginDependency</string>
+					<string>100284.CustomClassName</string>
 					<string>100284.IBPluginDependency</string>
 					<string>5.IBEditorWindowLastContentRect</string>
 					<string>5.IBPluginDependency</string>
@@ -3761,12 +3786,13 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>SCSortedArrayController</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{-666, -95}, {595, 533}}</string>
+					<string>{{474, 283}, {595, 533}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="0" id="8"/>
 					<reference ref="8"/>
-					<string>{{-666, -95}, {595, 533}}</string>
+					<string>{{474, 283}, {595, 533}}</string>
 					<reference ref="5"/>
 					<string>{{201, 387}, {507, 413}}</string>
 					<reference ref="8"/>
@@ -3797,7 +3823,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100339</int>
+			<int key="maxID">100342</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3806,12 +3832,37 @@
 					<string key="className">CfxrDocument</string>
 					<string key="superclassName">NSPersistentDocument</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">generateSound:</string>
-						<string key="NS.object.0">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSMutableArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>generateSound:</string>
+							<string>play:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">soundsController</string>
+						<string key="NS.object.0">NSArrayController</string>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">CfxrDocument.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SCSortedArrayController</string>
+					<string key="superclassName">NSArrayController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">appDelegate</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">SCSortedArrayController.h</string>
 					</object>
 				</object>
 			</object>

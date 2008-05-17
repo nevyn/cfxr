@@ -8,11 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-
+@class Sound;
 @interface CfxrDocument : NSPersistentDocument {
+	IBOutlet NSArrayController *soundsController;
 }
 
 -(IBAction)generateSound:(id)sender;
 
--(void)generateSoundFromCategory:(NSString*)category;
+-(Sound*)generateSoundFromCategory:(NSString*)category;
+
+-(IBAction)play:(id)sender;
 @end

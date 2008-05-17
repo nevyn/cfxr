@@ -7,14 +7,7 @@
 //
 
 #import "Sound.h"
-
-#define rnd(n) (rand()%(n+1))
-float frnd(float range)
-{
-	return (float)rnd(10000)/10000*range;
-}
-
-
+#import "common.h"
 
 @implementation Sound
 // todo: 	srand(time(NULL));
