@@ -11,6 +11,8 @@
 @interface Sound : NSManagedObject {
 	bool filter_on;// = false
 }
++(NSInteger)countInContext:(NSManagedObjectContext*)ctx;
++(NSInteger)highestIndexInContext:(NSManagedObjectContext*)ctx;
 
 -(void)generateParamsFromCategory:(NSString*)templateName;
 

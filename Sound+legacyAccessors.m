@@ -29,7 +29,8 @@
  "p_pha_ramp":        "phaserSweep",
  "p_repeat_speed":    "repeatSpeed",
  "p_arp_speed":       "changeSpeed",
- "p_arp_mod":         "changeAmount"
+ "p_arp_mod":         "changeAmount",
+ "sound_vol":		  "volume"
  }
  
  for legacyValue in legacyMap:
@@ -62,7 +63,6 @@
 @dynamic lowpassFilterCutoffSweep;
 @dynamic lowpassFilterResonance;
 @dynamic minFrequencyCutoff;
-@dynamic name;
 @dynamic phaserOffset;
 @dynamic phaserSweep;
 @dynamic repeatSpeed;
@@ -77,17 +77,51 @@
 @dynamic volume;
 @dynamic waveType;
 
-// Todo: Wave type
+@dynamic name;
+@dynamic index;
+@dynamic rating;
 
 -(int)wave_type;
 {
 	return [self.waveType intValue];
 }
+
 -(void)setWave_type:(int)waveType;
 {
 	self.waveType = [NSNumber numberWithInt:waveType];
 }
 
+-(float)sound_vol;
+{
+	return [self.volume floatValue]/100;
+}
+
+-(void)setSound_vol:(float)newVol;
+{
+	self.volume = [NSNumber numberWithInt:newVol*100.0];
+}
+
+-(int)wav_bits;
+{
+	return [self.bitDepth intValue];
+}
+
+-(void)setWav_bits:(int)w;
+{
+	self.bitDepth = [NSNumber numberWithInt:w];
+}
+
+-(int)wav_freq;
+{
+	return [self.sampleRate intValue];
+}
+
+-(void)setWav_freq:(int)w;
+{
+	self.sampleRate = [NSNumber numberWithInt:w];
+}
+
+/// GENERATED:
 -(float)p_duty_ramp;
 {
   	return [self.dutySweep floatValue];

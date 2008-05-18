@@ -25,7 +25,6 @@
 @property (retain) NSNumber * lowpassFilterCutoffSweep;
 @property (retain) NSNumber * lowpassFilterResonance;
 @property (retain) NSNumber * minFrequencyCutoff;
-@property (retain) NSString * name;
 @property (retain) NSNumber * waveType;
 @property (retain) NSNumber * phaserOffset;
 @property (retain) NSNumber * phaserSweep;
@@ -39,9 +38,16 @@
 @property (retain) NSNumber * vibratoDepth;
 @property (retain) NSNumber * vibratoSpeed;
 @property (retain) NSNumber * volume;
+@property (retain) NSString * name;
+@property (retain) NSNumber * index;
+@property (retain) NSNumber * rating;
 
+
+@property (assign) float sound_vol;
 
 @property (assign) int   wave_type;		   // waveType
+@property (assign) int   wav_bits;
+@property (assign) int   wav_freq;
 @property (assign) float p_base_freq;      // startFrequency
 @property (assign) float p_freq_limit;     // minFrequencyCutoff
 @property (assign) float p_freq_ramp;      // slide

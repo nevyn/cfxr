@@ -66,7 +66,7 @@ static void SDLAudioCallback(Playback* userdata, Uint8 *stream, int len);
 -(Sound*)playingSound; { return ps; };
 -(void)setPlayingSound:(Sound*)newPs; {
 	[newPs retain]; [ps release]; ps = newPs;
-	sound_vol = ps.volume.floatValue;
+	
 }
 
 -(void)play:(Sound*)sound;
@@ -277,7 +277,7 @@ static void SDLAudioCallback(Playback* userdata, Uint8 *stream, int len);
 		}
 		ssample=ssample/8*master_vol;
 		
-		ssample*=2.0f*sound_vol;
+		ssample*=2.0f*ps.sound_vol;
 		
 		if(buffer!=NULL)
 		{
@@ -294,11 +294,11 @@ static void SDLAudioCallback(Playback* userdata, Uint8 *stream, int len);
 			if(ssample<-1.0f) ssample=-1.0f;
 			filesample+=ssample;
 			fileacc++;
-			if(wav_freq==44100 || fileacc==2)
+			if(ps.wav_freq==44100 || fileacc==2)
 			{
 				filesample/=fileacc;
 				fileacc=0;
-				if(wav_bits==16)
+				if(ps.wav_bits==16)
 				{
 					short isample=(short)(filesample*32000);
 					fwrite(&isample, 1, 2, file);
@@ -360,13 +360,13 @@ static void SDLAudioCallback(Playback *playback, Uint8 *stream, int len)
 	fwrite(&word, 1, 2, foutput); // compression code
 	word=1;
 	fwrite(&word, 1, 2, foutput); // channels
-	dword=wav_freq;
+	dword=ps.wav_freq;
 	fwrite(&dword, 1, 4, foutput); // sample rate
-	dword=wav_freq*wav_bits/8;
+	dword=ps.wav_freq*ps.wav_bits/8;
 	fwrite(&dword, 1, 4, foutput); // bytes/sec
-	word=wav_bits/8;
+	word=ps.wav_bits/8;
 	fwrite(&word, 1, 2, foutput); // block align
-	word=wav_bits;
+	word=ps.wav_bits;
 	fwrite(&word, 1, 2, foutput); // bits per sample
 	
 	fwrite("data", 4, 1, foutput); // "data"
@@ -387,10 +387,10 @@ static void SDLAudioCallback(Playback *playback, Uint8 *stream, int len)
 	// seek back to header and write size info
 	fseek(foutput, 4, SEEK_SET);
 	dword=0;
-	dword=foutstream_datasize-4+file_sampleswritten*wav_bits/8;
+	dword=foutstream_datasize-4+file_sampleswritten*ps.wav_bits/8;
 	fwrite(&dword, 1, 4, foutput); // remaining file size
 	fseek(foutput, foutstream_datasize, SEEK_SET);
-	dword=file_sampleswritten*wav_bits/8;
+	dword=file_sampleswritten*ps.wav_bits/8;
 	fwrite(&dword, 1, 4, foutput); // chunk size (data)
 	fclose(foutput);
 	

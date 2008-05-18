@@ -21,12 +21,18 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)windowController 
 {
     [super windowControllerDidLoadNib:windowController];
-    
-	if([[soundsController arrangedObjects] count] == 0)
+	
+	if([Sound countInContext:[self managedObjectContext]] == 0)
 		[self generateSoundFromCategory:@"Empty"];
 	
-	[Playback playback]; // Nudge Playback class to have it initialize
+	// Sort by inverse index by default
+	NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc]
+										initWithKey: @"index" ascending: NO
+										selector:@selector(compare:)];
+	[soundsController setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+	[sortDescriptor release];
 	
+	soundsTable.delegate = self;
 }
 
 -(IBAction)generateSound:(id)sender;
@@ -40,11 +46,11 @@
 												 inManagedObjectContext:[self managedObjectContext]];
 	[sound generateParamsFromCategory:category];
 	
-	const int n = [[soundsController arrangedObjects] count] + 1;
-	sound.name = [NSString stringWithFormat:@"%03d %@", n, category];
+	sound.name = category;
 	
 	[soundsController setSelectedObjects:[NSArray arrayWithObject:sound]];
 	[[Playback playback] play:sound];
+	[soundsController rearrangeObjects];
 	return sound;
 }
 
@@ -53,6 +59,11 @@
 	Sound *s = [[soundsController selectedObjects] objectAtIndex:0];
 	[[Playback playback] play:s];
 
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification
+{
+	[self play:nil];
 }
 
 

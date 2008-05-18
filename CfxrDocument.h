@@ -11,6 +11,7 @@
 @class Sound;
 @interface CfxrDocument : NSPersistentDocument {
 	IBOutlet NSArrayController *soundsController;
+	IBOutlet NSTableView *soundsTable;
 }
 
 -(IBAction)generateSound:(id)sender;

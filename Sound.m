@@ -10,8 +10,49 @@
 #import "common.h"
 
 @implementation Sound
-// todo: 	srand(time(NULL));
++(NSInteger)countInContext:(NSManagedObjectContext*)moc;
+{
+	NSEntityDescription *entityDescription = [NSEntityDescription
+											  entityForName:@"Sound" inManagedObjectContext:moc];
+	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+	[request setEntity:entityDescription];
+		
+	NSArray *array = [moc executeFetchRequest:request error:nil];
+	if (array == nil)
+	{
+		return 0;
+	}
+	return [array count];
+}
 
++(NSInteger)highestIndexInContext:(NSManagedObjectContext*)moc;
+{
+	NSEntityDescription *entityDescription = [NSEntityDescription
+											  entityForName:@"Sound" inManagedObjectContext:moc];
+	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+	[request setEntity:entityDescription];
+	
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+										initWithKey:@"index" ascending:NO];
+	[request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+	[sortDescriptor release];
+
+	[request setFetchLimit:1];
+	
+	NSArray *array = [moc executeFetchRequest:request error:nil];
+	if (array == nil)
+	{
+		return 1;
+	}
+	Sound *s = [array objectAtIndex:0];
+	return s.index.intValue;
+}
+
+
+- (void)awakeFromInsert
+{
+	self.index = [NSNumber numberWithInt:[Sound highestIndexInContext:[self managedObjectContext]]+1];
+}
 -(void)generateParamsFromCategory:(NSString*)templateName;
 {
 	if([@"Pickup/coin" isEqualToString:templateName]) {
