@@ -61,6 +61,56 @@
 
 }
 
+-(IBAction)export:(id)sender;
+{
+	Sound *s = [[soundsController selectedObjects] objectAtIndex:0];
+
+	NSSavePanel *savePanel = [NSSavePanel savePanel];
+	savePanel.title = @"Export WAV as";
+	savePanel.prompt = @"Export WAV";
+	savePanel.nameFieldLabel = @"Export as:";
+	savePanel.requiredFileType = @"wav";
+	savePanel.canSelectHiddenExtension = YES;
+	
+	NSString *filename = [NSString stringWithFormat:@"%@ %03d  %@.wav",
+						  [self displayName], s.index.intValue,  s.name];
+	
+	[savePanel beginSheetForDirectory:nil
+								 file:filename
+					   modalForWindow:[[[self windowControllers] objectAtIndex:0] window]
+						modalDelegate:self
+					   didEndSelector:@selector(savePanelDidEnd:returnCode:contextInfo:)
+					      contextInfo:s];
+	
+}
+-(IBAction)exportQuickly:(id)sender;
+{
+	if([self fileURL] == nil) {
+		NSRunAlertPanel(@"You need to save first.", @"When you quick export, you export to the same folder as this document. Thus, you must save this document to somewhere on your computer before you can quick export.", @"Okay then", nil, nil);
+		return;
+	}
+	Sound *s = [[soundsController selectedObjects] objectAtIndex:0];
+
+	NSString *filename = [NSString stringWithFormat:@"%@ %03d %@.wav",
+						  [self displayName], s.index.intValue,  s.name];
+	
+	NSString *path = [[[[self fileURL] path] stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
+
+	[[Playback playback] export:s to:path];
+}
+
+- (void)savePanelDidEnd:(NSSavePanel *)sheet returnCode:(int)returnCode  contextInfo:(void  *)contextInfo;
+{
+	if(returnCode == NSCancelButton) return;
+	
+	[[Playback playback] export:contextInfo to:sheet.filename];
+}
+
+-(IBAction)takeMasterVolumeFrom:(id)sender;
+{
+	[Playback playback].masterVolume = [sender floatValue]/100;
+}
+
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification
 {
 	[self play:nil];

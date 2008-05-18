@@ -11,9 +11,7 @@
 
 @interface Playback : NSObject {
 	
-	
-	float sound_vol;
-	
+		
 	bool filter_on;
 
 	bool playing_sample;
@@ -54,8 +52,6 @@
 	
 	float* vselected;
 	
-	int wav_bits;
-	int wav_freq;
 	
 	int file_sampleswritten;
 	float filesample;
@@ -63,11 +59,16 @@
 
 	bool mute_stream;
 	
+	float masterVolume;
+	
 	Sound *ps;
 }
 +(Playback*)playback;
 
 -(void)play:(Sound*)sound;
+-(void)export:(Sound*)sound to:(NSString*)path;
 
 @property (retain) Sound *playingSound;
+
+@property (assign) float masterVolume;
 @end

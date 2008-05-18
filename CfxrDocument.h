@@ -19,4 +19,9 @@
 -(Sound*)generateSoundFromCategory:(NSString*)category;
 
 -(IBAction)play:(id)sender;
+
+-(IBAction)export:(id)sender;
+-(IBAction)exportQuickly:(id)sender;
+
+-(IBAction)takeMasterVolumeFrom:(id)sender;
 @end

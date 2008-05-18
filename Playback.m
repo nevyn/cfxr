@@ -13,8 +13,6 @@
 
 static Playback *playback;
 
-static float master_vol=0.05f;
-
 #define ResetSample(restart) [self resetSample:restart]
 #define PlaySample() [self playSample]
 #define SynthSample(l, b, f) [self synthSample:l:b:f]
@@ -24,14 +22,13 @@ static float master_vol=0.05f;
 -(void)resetSample:(bool) restart;
 -(void)playSample;
 -(void) synthSample:(int)length :(float*)buffer :(FILE*)file;
--(bool)exportWAV:(char*)filename;
+-(bool)exportWAV:(const char*)filename;
 @end
 
 @implementation Playback
 +(void)initialize;
 {
 	playback = [[Playback alloc] init];
-	NSLog(@"Hello");
 
 }
 
@@ -45,6 +42,8 @@ static void SDLAudioCallback(Playback* userdata, Uint8 *stream, int len);
 -(id)init;
 {
 	if(![super init]) return nil;
+	
+	masterVolume = 0.05;
 	
 	SDL_AudioSpec des;
 	des.freq = 44100;
@@ -74,6 +73,13 @@ static void SDLAudioCallback(Playback* userdata, Uint8 *stream, int len);
 	self.playingSound = sound;
 	PlaySample();
 }
+-(void)export:(Sound*)sound to:(NSString*)path;
+{
+	self.playingSound = sound;
+	ExportWAV([path UTF8String]);
+}
+
+@synthesize masterVolume;
 
 -(void)resetSample:(bool) restart;
 {
@@ -275,7 +281,7 @@ static void SDLAudioCallback(Playback* userdata, Uint8 *stream, int len);
 			// final accumulation and envelope application
 			ssample+=sample*env_vol;
 		}
-		ssample=ssample/8*master_vol;
+		ssample=ssample/8*masterVolume;
 		
 		ssample*=2.0f*ps.sound_vol;
 		
@@ -340,7 +346,7 @@ static void SDLAudioCallback(Playback *playback, Uint8 *stream, int len)
 }
 
 
--(bool)exportWAV:(char*)filename;
+-(bool)exportWAV:(const char*)filename;
 {
 	FILE* foutput=fopen(filename, "wb");
 	if(!foutput)
