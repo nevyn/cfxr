@@ -18,7 +18,7 @@
 				<string>text/xml</string>
 			</array>
 			<key>CFBundleTypeName</key>
-			<string>XML</string>
+			<string>cfxr Sound Collection</string>
 			<key>CFBundleTypeOSTypes</key>
 			<array>
 				<string>cfxr</string>
