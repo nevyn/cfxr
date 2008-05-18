@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="100046"/>
+			<integer value="100064"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -219,8 +219,8 @@
 																		</object>
 																	</object>
 																	<double key="NSRowHeight">1.400000e+01</double>
-																	<int key="NSTvFlags">-700448768</int>
-																	<int key="NSColumnAutoresizingStyle">4</int>
+																	<int key="NSTvFlags">-700416000</int>
+																	<int key="NSColumnAutoresizingStyle">1</int>
 																	<int key="NSDraggingSourceMaskForLocal">15</int>
 																	<int key="NSDraggingSourceMaskForNonLocal">0</int>
 																	<bool key="NSAllowsTypeSelect">YES</bool>
@@ -297,7 +297,7 @@
 															<reference key="NSControlView" ref="245984149"/>
 															<int key="NSButtonFlags">-2034876161</int>
 															<int key="NSButtonFlags2">164</int>
-															<object class="NSFont" key="NSAlternateImage" id="669242966">
+															<object class="NSFont" key="NSAlternateImage" id="669268413">
 																<string key="NSName">LucidaGrande</string>
 																<double key="NSSize">1.100000e+01</double>
 																<int key="NSfFlags">16</int>
@@ -315,7 +315,7 @@
 															<reference key="NSControlView" ref="245984149"/>
 															<int key="NSButtonFlags">-2034876161</int>
 															<int key="NSButtonFlags2">164</int>
-															<reference key="NSAlternateImage" ref="669242966"/>
+															<reference key="NSAlternateImage" ref="669268413"/>
 															<string key="NSAlternateContents"/>
 															<int key="NSPeriodicDelay">400</int>
 															<int key="NSPeriodicInterval">75</int>
@@ -328,7 +328,7 @@
 															<reference key="NSControlView" ref="245984149"/>
 															<int key="NSButtonFlags">-2034876161</int>
 															<int key="NSButtonFlags2">164</int>
-															<reference key="NSAlternateImage" ref="669242966"/>
+															<reference key="NSAlternateImage" ref="669268413"/>
 															<string key="NSAlternateContents"/>
 															<int key="NSPeriodicDelay">400</int>
 															<int key="NSPeriodicInterval">75</int>
@@ -341,7 +341,7 @@
 															<reference key="NSControlView" ref="245984149"/>
 															<int key="NSButtonFlags">-2034876161</int>
 															<int key="NSButtonFlags2">164</int>
-															<reference key="NSAlternateImage" ref="669242966"/>
+															<reference key="NSAlternateImage" ref="669268413"/>
 															<string key="NSAlternateContents"/>
 															<int key="NSPeriodicDelay">400</int>
 															<int key="NSPeriodicInterval">75</int>
@@ -354,7 +354,7 @@
 															<reference key="NSControlView" ref="245984149"/>
 															<int key="NSButtonFlags">-2034876161</int>
 															<int key="NSButtonFlags2">164</int>
-															<reference key="NSAlternateImage" ref="669242966"/>
+															<reference key="NSAlternateImage" ref="669268413"/>
 															<string key="NSAlternateContents"/>
 															<int key="NSPeriodicDelay">400</int>
 															<int key="NSPeriodicInterval">75</int>
@@ -367,7 +367,7 @@
 															<reference key="NSControlView" ref="245984149"/>
 															<int key="NSButtonFlags">-2034876161</int>
 															<int key="NSButtonFlags2">164</int>
-															<reference key="NSAlternateImage" ref="669242966"/>
+															<reference key="NSAlternateImage" ref="669268413"/>
 															<string key="NSAlternateContents"/>
 															<int key="NSPeriodicDelay">400</int>
 															<int key="NSPeriodicInterval">75</int>
@@ -380,7 +380,7 @@
 															<reference key="NSControlView" ref="245984149"/>
 															<int key="NSButtonFlags">-2034876161</int>
 															<int key="NSButtonFlags2">164</int>
-															<reference key="NSAlternateImage" ref="669242966"/>
+															<reference key="NSAlternateImage" ref="669268413"/>
 															<string key="NSAlternateContents"/>
 															<int key="NSPeriodicDelay">400</int>
 															<int key="NSPeriodicInterval">75</int>
@@ -393,7 +393,7 @@
 															<reference key="NSControlView" ref="245984149"/>
 															<int key="NSButtonFlags">-2034876161</int>
 															<int key="NSButtonFlags2">164</int>
-															<reference key="NSAlternateImage" ref="669242966"/>
+															<reference key="NSAlternateImage" ref="669268413"/>
 															<string key="NSAlternateContents"/>
 															<int key="NSPeriodicDelay">400</int>
 															<int key="NSPeriodicInterval">75</int>
@@ -410,7 +410,7 @@
 														<reference key="NSSupport" ref="26"/>
 														<int key="NSButtonFlags">-2034876161</int>
 														<int key="NSButtonFlags2">164</int>
-														<reference key="NSAlternateImage" ref="669242966"/>
+														<reference key="NSAlternateImage" ref="669268413"/>
 														<string key="NSAlternateContents"/>
 														<int key="NSPeriodicDelay">400</int>
 														<int key="NSPeriodicInterval">75</int>
