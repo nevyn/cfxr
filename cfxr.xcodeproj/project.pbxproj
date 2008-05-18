@@ -14,6 +14,8 @@
 		054D4A570DDF619500684DFE /* SCSortedArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 054D4A560DDF619500684DFE /* SCSortedArrayController.m */; };
 		054D4AD60DDF665600684DFE /* Playback.m in Sources */ = {isa = PBXBuildFile; fileRef = 054D4AD50DDF665600684DFE /* Playback.m */; };
 		054D4B2F0DDF900900684DFE /* common.m in Sources */ = {isa = PBXBuildFile; fileRef = 054D4B2E0DDF900900684DFE /* common.m */; };
+		054D4F070DE0957100684DFE /* cfxr.icns in Resources */ = {isa = PBXBuildFile; fileRef = 054D4F060DE0957100684DFE /* cfxr.icns */; };
+		054D4F1B0DE0969B00684DFE /* sound.icns in Resources */ = {isa = PBXBuildFile; fileRef = 054D4F1A0DE0969B00684DFE /* sound.icns */; };
 		2F7446AB0DB6BCF400F9684A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7446A70DB6BCF400F9684A /* MainMenu.xib */; };
 		775BDEF1067A8BF0009058FE /* CfxrDocument.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 775BDEF0067A8BF0009058FE /* CfxrDocument.xcdatamodel */; };
 		775DFF38067A968500C5B868 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
@@ -40,6 +42,8 @@
 		054D4AD50DDF665600684DFE /* Playback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playback.m; sourceTree = "<group>"; };
 		054D4B230DDF8D7900684DFE /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		054D4B2E0DDF900900684DFE /* common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = common.m; sourceTree = "<group>"; };
+		054D4F060DE0957100684DFE /* cfxr.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = cfxr.icns; sourceTree = "<group>"; };
+		054D4F1A0DE0969B00684DFE /* sound.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = sound.icns; sourceTree = "<group>"; };
 		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		2A37F4ACFDCFA73011CA2CEA /* CfxrDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CfxrDocument.m; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				054D4F1A0DE0969B00684DFE /* sound.icns */,
+				054D4F060DE0957100684DFE /* cfxr.icns */,
 				054D48E50DDEE83D00684DFE /* CfxrDocument.xib */,
 				2F7446A70DB6BCF400F9684A /* MainMenu.xib */,
 				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
@@ -203,6 +209,8 @@
 				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
 				2F7446AB0DB6BCF400F9684A /* MainMenu.xib in Resources */,
 				054D48E70DDEE83D00684DFE /* CfxrDocument.xib in Resources */,
+				054D4F070DE0957100684DFE /* cfxr.icns in Resources */,
+				054D4F1B0DE0969B00684DFE /* sound.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

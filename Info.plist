@@ -12,7 +12,7 @@
 				<string>cfxr</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string></string>
+			<string>sound</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>text/xml</string>
@@ -36,7 +36,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string></string>
+	<string>cfxr</string>
 	<key>CFBundleIdentifier</key>
 	<string>eu.thirdcog.cfxr</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -50,7 +50,7 @@
 	<key>CFBundleSignature</key>
 	<string>3rdC</string>
 	<key>CFBundleVersion</key>
-	<string>22</string>
+	<string>0.1</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
