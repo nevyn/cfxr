@@ -72,7 +72,7 @@
 	savePanel.requiredFileType = @"wav";
 	savePanel.canSelectHiddenExtension = YES;
 	
-	NSString *filename = [NSString stringWithFormat:@"%@ %03d  %@.wav",
+	NSString *filename = [NSString stringWithFormat:@"%@ %03d %@.wav",
 						  [self displayName], s.index.intValue,  s.name];
 	
 	[savePanel beginSheetForDirectory:nil
@@ -90,20 +90,26 @@
 		return;
 	}
 	Sound *s = [[soundsController selectedObjects] objectAtIndex:0];
-
+	NSString *sName = [s.name stringByReplacingOccurrencesOfString:@"/" withString:@" or "];
 	NSString *filename = [NSString stringWithFormat:@"%@ %03d %@.wav",
-						  [self displayName], s.index.intValue,  s.name];
+						  [self displayName], s.index.intValue,  sName];
 	
 	NSString *path = [[[[self fileURL] path] stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
+	NSLog(@"I'm now exporting %@ to %@", s, path);
+	
+	NSError *error;
+	if(![[Playback playback] export:s to:path error:&error])
+		[self presentError:error];
 
-	[[Playback playback] export:s to:path];
 }
 
 - (void)savePanelDidEnd:(NSSavePanel *)sheet returnCode:(int)returnCode  contextInfo:(void  *)contextInfo;
 {
 	if(returnCode == NSCancelButton) return;
 	
-	[[Playback playback] export:contextInfo to:sheet.filename];
+	NSError *error;
+	if(![[Playback playback] export:contextInfo to:sheet.filename error:&error])
+		NSRunAlertPanel(@"Export failed.", [error localizedDescription], @"Bummer", nil, nil);
 }
 
 -(IBAction)takeMasterVolumeFrom:(id)sender;

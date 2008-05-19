@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="100064"/>
+			<integer value="100045"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -83,7 +83,7 @@
 																	<object class="NSMutableArray" key="NSTableColumns">
 																		<bool key="EncodedWithXMLCoder">YES</bool>
 																		<object class="NSTableColumn" id="28369617">
-																			<double key="NSWidth">2.000000e+01</double>
+																			<double key="NSWidth">2.500000e+01</double>
 																			<double key="NSMinWidth">1.000000e+01</double>
 																			<double key="NSMaxWidth">3.402823e+38</double>
 																			<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -175,7 +175,7 @@
 																			<reference key="NSTableView" ref="836285522"/>
 																		</object>
 																		<object class="NSTableColumn" id="794899011">
-																			<double key="NSWidth">3.700000e+01</double>
+																			<double key="NSWidth">3.200000e+01</double>
 																			<double key="NSMinWidth">1.000000e+01</double>
 																			<double key="NSMaxWidth">3.402823e+38</double>
 																			<object class="NSTableHeaderCell" key="NSHeaderCell">

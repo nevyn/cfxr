@@ -22,7 +22,7 @@ static Playback *playback;
 -(void)resetSample:(bool) restart;
 -(void)playSample;
 -(void) synthSample:(int)length :(float*)buffer :(FILE*)file;
--(bool)exportWAV:(const char*)filename;
+-(bool)exportWAV:(NSString*)path error:(NSError**)error;
 @end
 
 @implementation Playback
@@ -73,10 +73,10 @@ static void SDLAudioCallback(Playback* userdata, Uint8 *stream, int len);
 	self.playingSound = sound;
 	PlaySample();
 }
--(void)export:(Sound*)sound to:(NSString*)path;
+-(BOOL)export:(Sound*)sound to:(NSString*)path error:(NSError**)error;
 {
 	self.playingSound = sound;
-	ExportWAV([path UTF8String]);
+	return [self exportWAV:path error:error];
 }
 
 @synthesize masterVolume;
@@ -346,11 +346,17 @@ static void SDLAudioCallback(Playback *playback, Uint8 *stream, int len)
 }
 
 
--(bool)exportWAV:(const char*)filename;
+-(bool)exportWAV:(NSString*)path error:(NSError**)error;
 {
-	FILE* foutput=fopen(filename, "wb");
-	if(!foutput)
+	if( ! [@"" writeToFile:path atomically:NO encoding:NSUTF8StringEncoding error:error]) return NO;
+	
+	//NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath:path];
+	FILE *foutput = fopen([path UTF8String], "wb");//(FILE*)[fh fileDescriptor];
+	if(/*!fh ||*/ !foutput) {
+		if(error)
+			*error = CfxrMakeError(1, [NSString stringWithFormat:@"Failed to export file because the file %@ couldn't be opened", path], @"Try selecting another file name");
 		return false;
+	}
 	// write wav header
 	unsigned int dword=0;
 	unsigned short word=0;

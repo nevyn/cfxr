@@ -66,7 +66,7 @@
 +(Playback*)playback;
 
 -(void)play:(Sound*)sound;
--(void)export:(Sound*)sound to:(NSString*)path;
+-(BOOL)export:(Sound*)sound to:(NSString*)path error:(NSError**)error;
 
 @property (retain) Sound *playingSound;
 
