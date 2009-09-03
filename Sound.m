@@ -10,7 +10,7 @@
 #import "common.h"
 
 @implementation Sound
-+(NSInteger)countInContext:(NSManagedObjectContext*)moc;
++(int)countInContext:(NSManagedObjectContext*)moc;
 {
 	NSEntityDescription *entityDescription = [NSEntityDescription
 											  entityForName:@"Sound" inManagedObjectContext:moc];
@@ -25,7 +25,7 @@
 	return [array count];
 }
 
-+(NSInteger)highestIndexInContext:(NSManagedObjectContext*)moc;
++(int)highestIndexInContext:(NSManagedObjectContext*)moc;
 {
 	NSEntityDescription *entityDescription = [NSEntityDescription
 											  entityForName:@"Sound" inManagedObjectContext:moc];

@@ -20,7 +20,7 @@
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)windowController 
 {
-    [super windowControllerDidLoadNib:windowController];
+  [super windowControllerDidLoadNib:windowController];
 	
 	if([Sound countInContext:[self managedObjectContext]] == 0)
 		[self generateSoundFromCategory:@"Empty"];
@@ -33,6 +33,14 @@
 	[sortDescriptor release];
 	
 	soundsTable.delegate = self;
+}
+
+-(void)dealloc;
+{
+	[Playback playback].playingSound = nil;
+	if([Playback playback].delegate == self)
+		[Playback playback].delegate = nil;
+	[super dealloc];
 }
 
 -(IBAction)generateSound:(id)sender;
@@ -56,13 +64,28 @@
 
 -(IBAction)play:(id)sender;
 {
+	if([soundsController selectedObjects].count == 0) return;
+	
 	Sound *s = [[soundsController selectedObjects] objectAtIndex:0];
 	[[Playback playback] play:s];
-
+}
+-(IBAction)toggleLooping:(id)sender;
+{
+	if([sender state] == NSOnState) {
+		[Playback playback].delegate = self;
+		[self play:nil];
+	} else 
+		[Playback playback].delegate = nil;
+}
+-(void)playbackStoppedPlaying:(Playback*)playback_;
+{
+	[self play:nil];
 }
 
 -(IBAction)export:(id)sender;
 {
+	if([soundsController selectedObjects].count == 0) return;
+	
 	Sound *s = [[soundsController selectedObjects] objectAtIndex:0];
 
 	NSSavePanel *savePanel = [NSSavePanel savePanel];
@@ -89,6 +112,9 @@
 		NSRunAlertPanel(@"You need to save first.", @"When you quick export, you export to the same folder as this document. Thus, you must save this document to somewhere on your computer before you can quick export.", @"Okay then", nil, nil);
 		return;
 	}
+	
+	if([soundsController selectedObjects].count == 0) return;
+	
 	Sound *s = [[soundsController selectedObjects] objectAtIndex:0];
 	NSString *sName = [s.name stringByReplacingOccurrencesOfString:@"/" withString:@" or "];
 	NSString *filename = [NSString stringWithFormat:@"%@ %03d %@.wav",
@@ -97,9 +123,16 @@
 	NSString *path = [[[[self fileURL] path] stringByDeletingLastPathComponent] stringByAppendingPathComponent:filename];
 	NSLog(@"I'm now exporting %@ to %@", s, path);
 	
+
+	id oldDelegate = [Playback playback].delegate;
+	[Playback playback].delegate = nil;
+	
 	NSError *error;
 	if(![[Playback playback] export:s to:path error:&error])
 		[self presentError:error];
+	
+	[Playback playback].delegate = oldDelegate;
+
 
 }
 
@@ -107,9 +140,13 @@
 {
 	if(returnCode == NSCancelButton) return;
 	
+	id oldDelegate = [Playback playback].delegate;
+	[Playback playback].delegate = nil;
+	
 	NSError *error;
 	if(![[Playback playback] export:contextInfo to:sheet.filename error:&error])
 		NSRunAlertPanel(@"Export failed.", [error localizedDescription], @"Bummer", nil, nil);
+	[Playback playback].delegate = oldDelegate;
 }
 
 -(IBAction)takeMasterVolumeFrom:(id)sender;

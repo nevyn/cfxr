@@ -23,9 +23,12 @@ static Playback *playback;
 -(void)playSample;
 -(void) synthSample:(int)length :(float*)buffer :(FILE*)file;
 -(bool)exportWAV:(NSString*)path error:(NSError**)error;
+
+@property bool playing_sample;
 @end
 
 @implementation Playback
+
 +(void)initialize;
 {
 	playback = [[Playback alloc] init];
@@ -148,7 +151,7 @@ static void SDLAudioCallback(Playback* userdata, Uint8 *stream, int len);
 -(void)playSample;
 {
 	ResetSample(false);
-	playing_sample=true;
+	self.playing_sample=true;
 }
 
 -(void) synthSample:(int)length :(float*)buffer :(FILE*)file;
@@ -157,7 +160,7 @@ static void SDLAudioCallback(Playback* userdata, Uint8 *stream, int len);
 	
 	for(int i=0;i<length;i++)
 	{
-		if(!playing_sample)
+		if(!self.playing_sample)
 			break;
 		
 		rep_time++;
@@ -180,7 +183,7 @@ static void SDLAudioCallback(Playback* userdata, Uint8 *stream, int len);
 		{
 			fperiod=fmaxperiod;
 			if(ps.p_freq_limit>0.0f)
-				playing_sample=false;
+				self.playing_sample=false;
 		}
 		float rfperiod=fperiod;
 		if(vib_amp>0.0f)
@@ -200,7 +203,7 @@ static void SDLAudioCallback(Playback* userdata, Uint8 *stream, int len);
 			env_time=0;
 			env_stage++;
 			if(env_stage==3)
-				playing_sample=false;
+				self.playing_sample=false;
 		}
 		if(env_stage==0)
 			env_vol=(float)env_time/env_length[0];
@@ -324,7 +327,7 @@ static void SDLAudioCallback(Playback* userdata, Uint8 *stream, int len);
 
 -(void)audioCallback:(Uint8 *)stream :(int)len;
 {
-	if (playing_sample && !mute_stream)
+	if (self.playing_sample && !mute_stream)
 	{
 		unsigned int l = len/2;
 		float fbuf[l];
@@ -392,7 +395,7 @@ static void SDLAudioCallback(Playback *playback, Uint8 *stream, int len)
 	filesample=0.0f;
 	fileacc=0;
 	PlaySample();
-	while(playing_sample)
+	while(self.playing_sample)
 		SynthSample(256, NULL, foutput);
 	mute_stream=false;
 	
@@ -409,5 +412,14 @@ static void SDLAudioCallback(Playback *playback, Uint8 *stream, int len)
 	return true;
 }
 
+
+@synthesize playing_sample, delegate;
+-(void)setPlaying_sample:(bool)becomes;
+{
+	bool was = playing_sample;
+	playing_sample = becomes;
+	if(was && !becomes)
+		[delegate playbackStoppedPlaying:self];
+}
 
 @end

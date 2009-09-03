@@ -7,9 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Playback.h"
 
 @class Sound;
-@interface CfxrDocument : NSPersistentDocument {
+@interface CfxrDocument : NSPersistentDocument <PlaybackDelegate> {
 	IBOutlet NSArrayController *soundsController;
 	IBOutlet NSTableView *soundsTable;
 }
@@ -19,6 +20,7 @@
 -(Sound*)generateSoundFromCategory:(NSString*)category;
 
 -(IBAction)play:(id)sender;
+-(IBAction)toggleLooping:(id)sender;
 
 -(IBAction)export:(id)sender;
 -(IBAction)exportQuickly:(id)sender;

@@ -50,7 +50,7 @@
 	<key>CFBundleSignature</key>
 	<string>3rdC</string>
 	<key>CFBundleVersion</key>
-	<string>0.1.4</string>
+	<string>0.1.5</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>

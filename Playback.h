@@ -9,6 +9,8 @@
 #import <Cocoa/Cocoa.h>
 #import "Sound.h"
 
+@protocol PlaybackDelegate;
+
 @interface Playback : NSObject {
 	
 		
@@ -62,6 +64,8 @@
 	float masterVolume;
 	
 	Sound *ps;
+	
+	id<NSObject, PlaybackDelegate> delegate;
 }
 +(Playback*)playback;
 
@@ -69,6 +73,15 @@
 -(BOOL)export:(Sound*)sound to:(NSString*)path error:(NSError**)error;
 
 @property (retain) Sound *playingSound;
+@property (assign) id<NSObject, PlaybackDelegate> delegate;
 
 @property (assign) float masterVolume;
 @end
+
+
+
+@protocol PlaybackDelegate
+-(void)playbackStoppedPlaying:(Playback*)playback_;
+@end
+
+
