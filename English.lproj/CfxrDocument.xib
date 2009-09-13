@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="100046"/>
+			<integer value="100047"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1553,18 +1553,18 @@
 														<int key="NSPeriodicInterval">75</int>
 													</object>
 												</object>
-												<object class="NSButton" id="286630800">
+												<object class="NSButton" id="406615086">
 													<reference key="NSNextResponder" ref="1038744580"/>
 													<int key="NSvFlags">268</int>
 													<string key="NSFrame">{{362, 237}, {108, 19}}</string>
 													<reference key="NSSuperview" ref="1038744580"/>
 													<bool key="NSEnabled">YES</bool>
-													<object class="NSButtonCell" key="NSCell" id="90657131">
+													<object class="NSButtonCell" key="NSCell" id="252812113">
 														<int key="NSCellFlags">67239424</int>
 														<int key="NSCellFlags2">134217728</int>
 														<string key="NSContents">Play looping</string>
 														<reference key="NSSupport" ref="931032304"/>
-														<reference key="NSControlView" ref="286630800"/>
+														<reference key="NSControlView" ref="406615086"/>
 														<int key="NSButtonFlags">914637055</int>
 														<int key="NSButtonFlags2">164</int>
 														<string key="NSAlternateContents"/>
@@ -2746,14 +2746,6 @@
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">nextKeyView</string>
-						<reference key="source" ref="854347337"/>
-						<reference key="destination" ref="708473906"/>
-					</object>
-					<int key="connectionID">100379</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">nextKeyView</string>
 						<reference key="source" ref="708473906"/>
 						<reference key="destination" ref="841925259"/>
 					</object>
@@ -2786,7 +2778,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">nextKeyView</string>
-						<reference key="source" ref="286630800"/>
+						<reference key="source" ref="406615086"/>
 						<reference key="destination" ref="708473906"/>
 					</object>
 					<int key="connectionID">100388</int>
@@ -2795,9 +2787,17 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">toggleLooping:</string>
 						<reference key="source" ref="512844837"/>
-						<reference key="destination" ref="286630800"/>
+						<reference key="destination" ref="406615086"/>
 					</object>
 					<int key="connectionID">100389</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">nextKeyView</string>
+						<reference key="source" ref="854347337"/>
+						<reference key="destination" ref="406615086"/>
+					</object>
+					<int key="connectionID">100390</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3064,7 +3064,7 @@
 							<reference ref="312825709"/>
 							<reference ref="564814076"/>
 							<reference ref="527401731"/>
-							<reference ref="286630800"/>
+							<reference ref="406615086"/>
 							<reference ref="854347337"/>
 						</object>
 						<reference key="parent" ref="43998300"/>
@@ -3985,17 +3985,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100385</int>
-						<reference key="object" ref="286630800"/>
+						<reference key="object" ref="406615086"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="90657131"/>
+							<reference ref="252812113"/>
 						</object>
 						<reference key="parent" ref="862340574"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">100386</int>
-						<reference key="object" ref="90657131"/>
-						<reference key="parent" ref="286630800"/>
+						<reference key="object" ref="252812113"/>
+						<reference key="parent" ref="406615086"/>
 					</object>
 				</object>
 			</object>
@@ -4366,7 +4366,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100389</int>
+			<int key="maxID">100390</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
