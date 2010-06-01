@@ -27,4 +27,8 @@
 -(IBAction)exportQuickly:(id)sender;
 
 -(IBAction)takeMasterVolumeFrom:(id)sender;
+
+- (IBAction) copy:(id) sender;
+- (IBAction) paste:(id) sender;
+
 @end

@@ -16,6 +16,8 @@
 
 -(void)generateParamsFromCategory:(NSString*)templateName;
 
++(NSArray *) keysToBeCopied;
+-(NSDictionary *) dictionaryRepresentation;
 @end
 
 #import "Sound+legacyAccessors.h"

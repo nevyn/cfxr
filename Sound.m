@@ -238,4 +238,25 @@
 	}
 }
 
+
++(NSArray *) keysToBeCopied;
+{
+	static NSArray *keysToBeCopied = nil;
+	if (keysToBeCopied == nil) {
+		keysToBeCopied = [[NSArray alloc] initWithObjects:
+			@"attackTime", @"bitDepth", @"changeAmount", @"changeSpeed", @"decayTime",
+			@"deltaSlide", @"dutySweep", @"highpassFilterCutoff", @"highpassFilterCutoffSweep",
+			@"lowpassFilterCutoff", @"lowpassFilterCutoffSweep", @"lowpassFilterResonance",
+			@"minFrequencyCutoff", @"waveType", @"phaserOffset", @"phaserSweep", @"repeatSpeed",
+			@"sampleRate", @"slide", @"squareDuty", @"startFrequency", @"sustainPunch", @"sustainTime",
+			@"vibratoDepth", @"vibratoSpeed", @"volume", @"name", @"rating", nil
+		];
+	}
+	return keysToBeCopied;
+}
+-(NSDictionary *) dictionaryRepresentation;
+{
+	return [self dictionaryWithValuesForKeys:[[self class] keysToBeCopied]];
+}
+
 @end

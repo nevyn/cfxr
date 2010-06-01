@@ -10,6 +10,7 @@
 #import "Sound.h"
 #import "Playback.h"
 
+NSString *CfxrSoundPBoardType = @"CfxrSoundPBoardType";
 
 @implementation CfxrDocument
 
@@ -163,6 +164,49 @@
 {
 	[self play:nil];
 }
+
+
+- (IBAction) copy:(id) sender
+{
+	NSArray *selectedObjects = [soundsController selectedObjects];
+	NSUInteger count = [selectedObjects count];
+	if (count == 0) return;
+
+	NSMutableArray *copyObjectsArray = [NSMutableArray arrayWithCapacity:count];
+	NSMutableArray *copyStringsArray = [NSMutableArray arrayWithCapacity:count];
+	
+	for (Sound *sound in selectedObjects)
+	{
+		[copyObjectsArray addObject:[sound dictionaryRepresentation]];
+		[copyStringsArray addObject:[sound description]];
+	}
+	
+	NSPasteboard *generalPasteboard = [NSPasteboard generalPasteboard];
+	[generalPasteboard declareTypes:[NSArray arrayWithObjects:CfxrSoundPBoardType, NSStringPboardType, nil] owner:self];
+	NSData *copyData = [NSKeyedArchiver archivedDataWithRootObject:copyObjectsArray];
+	[generalPasteboard setData:copyData forType:CfxrSoundPBoardType];
+	[generalPasteboard setString:[copyStringsArray componentsJoinedByString:@"\n"] forType:NSStringPboardType];
+}
+- (IBAction) paste:(id) sender
+{
+	NSPasteboard *generalPasteboard = [NSPasteboard generalPasteboard];
+	NSData *data = [generalPasteboard dataForType:CfxrSoundPBoardType];
+	if (data == nil)
+	{
+		return;
+	}
+	NSArray *soundsArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+	NSManagedObjectContext *moc = [self managedObjectContext];
+
+	for (NSDictionary *soundDictionary in soundsArray) {
+		//create a new Expense entity
+		Sound *sound = (id)[NSEntityDescription insertNewObjectForEntityForName:@"Sound" inManagedObjectContext:moc];
+		// Dump the values from the dictionary into the new entity
+		[sound setValuesForKeysWithDictionary:soundDictionary];
+		
+	}
+}
+
 
 
 @end
