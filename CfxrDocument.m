@@ -69,6 +69,11 @@
 	Sound *s = [[soundsController selectedObjects] objectAtIndex:0];
 	[[Playback playback] play:s];
 }
+-(IBAction)playOnChange:(id)sender;
+{
+	if([[NSUserDefaults standardUserDefaults] boolForKey:@"playOnChange"])
+		[self play:sender];
+}
 -(IBAction)toggleLooping:(id)sender;
 {
 	if([sender state] == NSOnState) {

@@ -20,6 +20,7 @@
 -(Sound*)generateSoundFromCategory:(NSString*)category;
 
 -(IBAction)play:(id)sender;
+-(IBAction)playOnChange:(id)sender;
 -(IBAction)toggleLooping:(id)sender;
 
 -(IBAction)export:(id)sender;

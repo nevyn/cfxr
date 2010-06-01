@@ -2,17 +2,17 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">10A421a</string>
-		<string key="IBDocument.InterfaceBuilderVersion">732</string>
-		<string key="IBDocument.AppKitVersion">1038</string>
-		<string key="IBDocument.HIToolboxVersion">435.00</string>
+		<string key="IBDocument.SystemVersion">10D573</string>
+		<string key="IBDocument.InterfaceBuilderVersion">789</string>
+		<string key="IBDocument.AppKitVersion">1038.29</string>
+		<string key="IBDocument.HIToolboxVersion">460.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">732</string>
+			<string key="NS.object.0">789</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="100047"/>
+			<integer value="100046"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1837,6 +1837,33 @@
 														<reference key="NSTextColor" ref="620517763"/>
 													</object>
 												</object>
+												<object class="NSButton" id="309049377">
+													<reference key="NSNextResponder" ref="1038744580"/>
+													<int key="NSvFlags">268</int>
+													<string key="NSFrame">{{360, 287}, {102, 18}}</string>
+													<reference key="NSSuperview" ref="1038744580"/>
+													<bool key="NSEnabled">YES</bool>
+													<object class="NSButtonCell" key="NSCell" id="1068648588">
+														<int key="NSCellFlags">-2080244224</int>
+														<int key="NSCellFlags2">131072</int>
+														<string key="NSContents">Play on change</string>
+														<reference key="NSSupport" ref="26"/>
+														<reference key="NSControlView" ref="309049377"/>
+														<int key="NSButtonFlags">1211912703</int>
+														<int key="NSButtonFlags2">2</int>
+														<object class="NSCustomResource" key="NSNormalImage">
+															<string key="NSClassName">NSImage</string>
+															<string key="NSResourceName">NSSwitch</string>
+														</object>
+														<object class="NSButtonImageSource" key="NSAlternateImage">
+															<string key="NSImageName">NSSwitch</string>
+														</object>
+														<string key="NSAlternateContents"/>
+														<string key="NSKeyEquivalent"/>
+														<int key="NSPeriodicDelay">200</int>
+														<int key="NSPeriodicInterval">25</int>
+													</object>
+												</object>
 											</object>
 											<string key="NSFrameSize">{480, 536}</string>
 											<reference key="NSSuperview" ref="862340574"/>
@@ -1922,6 +1949,13 @@
 				<bool key="NSSelectsInsertedObjects">YES</bool>
 				<bool key="NSFilterRestrictsInsertion">YES</bool>
 				<bool key="NSClearsFilterPredicateOnInsertion">YES</bool>
+			</object>
+			<object class="NSUserDefaultsController" id="662152416">
+				<object class="NSMutableArray" key="NSDeclaredKeys">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+					<string>playOnChange</string>
+				</object>
+				<bool key="NSSharedInstance">YES</bool>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -2799,6 +2833,206 @@
 					</object>
 					<int key="connectionID">100390</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="634524671"/>
+					</object>
+					<int key="connectionID">100402</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="1067412184"/>
+					</object>
+					<int key="connectionID">100403</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="875655986"/>
+					</object>
+					<int key="connectionID">100404</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="450580902"/>
+					</object>
+					<int key="connectionID">100405</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="268343916"/>
+					</object>
+					<int key="connectionID">100406</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="276444278"/>
+					</object>
+					<int key="connectionID">100407</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="710004352"/>
+					</object>
+					<int key="connectionID">100408</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="157497141"/>
+					</object>
+					<int key="connectionID">100409</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="150469089"/>
+					</object>
+					<int key="connectionID">100410</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="119354176"/>
+					</object>
+					<int key="connectionID">100411</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="184011280"/>
+					</object>
+					<int key="connectionID">100412</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="730353372"/>
+					</object>
+					<int key="connectionID">100413</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="193259707"/>
+					</object>
+					<int key="connectionID">100414</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="208617383"/>
+					</object>
+					<int key="connectionID">100415</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="804313219"/>
+					</object>
+					<int key="connectionID">100416</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="7265676"/>
+					</object>
+					<int key="connectionID">100417</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="649522248"/>
+					</object>
+					<int key="connectionID">100418</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="772563222"/>
+					</object>
+					<int key="connectionID">100419</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="1060399572"/>
+					</object>
+					<int key="connectionID">100420</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="989033653"/>
+					</object>
+					<int key="connectionID">100421</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="565481981"/>
+					</object>
+					<int key="connectionID">100422</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="144343985"/>
+					</object>
+					<int key="connectionID">100423</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">playOnChange:</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="557065732"/>
+					</object>
+					<int key="connectionID">100424</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.playOnChange</string>
+						<reference key="source" ref="309049377"/>
+						<reference key="destination" ref="662152416"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="309049377"/>
+							<reference key="NSDestination" ref="662152416"/>
+							<string key="NSLabel">value: values.playOnChange</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.playOnChange</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">100428</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3066,6 +3300,7 @@
 							<reference ref="527401731"/>
 							<reference ref="406615086"/>
 							<reference ref="854347337"/>
+							<reference ref="309049377"/>
 						</object>
 						<reference key="parent" ref="43998300"/>
 					</object>
@@ -3997,6 +4232,25 @@
 						<reference key="object" ref="252812113"/>
 						<reference key="parent" ref="406615086"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100398</int>
+						<reference key="object" ref="309049377"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="1068648588"/>
+						</object>
+						<reference key="parent" ref="862340574"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100399</int>
+						<reference key="object" ref="1068648588"/>
+						<reference key="parent" ref="309049377"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100425</int>
+						<reference key="object" ref="662152416"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -4161,6 +4415,9 @@
 					<string>100375.IBPluginDependency</string>
 					<string>100385.IBPluginDependency</string>
 					<string>100386.IBPluginDependency</string>
+					<string>100398.IBPluginDependency</string>
+					<string>100399.IBPluginDependency</string>
+					<string>100425.IBPluginDependency</string>
 					<string>5.IBEditorWindowLastContentRect</string>
 					<string>5.IBPluginDependency</string>
 					<string>5.IBViewEditorWindowController.showingBoundsRectangles</string>
@@ -4335,11 +4592,14 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{294, 295}, {607, 534}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{68, 398}, {607, 534}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="0"/>
 					<integer value="0"/>
-					<string>{{294, 295}, {607, 534}}</string>
+					<string>{{68, 398}, {607, 534}}</string>
 					<integer value="1"/>
 					<string>{{201, 387}, {507, 413}}</string>
 					<integer value="0"/>
@@ -4366,7 +4626,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100390</int>
+			<int key="maxID">100428</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4382,6 +4642,7 @@
 							<string>exportQuickly:</string>
 							<string>generateSound:</string>
 							<string>play:</string>
+							<string>playOnChange:</string>
 							<string>takeMasterVolumeFrom:</string>
 							<string>toggleLooping:</string>
 						</object>
@@ -4393,6 +4654,51 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>export:</string>
+							<string>exportQuickly:</string>
+							<string>generateSound:</string>
+							<string>play:</string>
+							<string>playOnChange:</string>
+							<string>takeMasterVolumeFrom:</string>
+							<string>toggleLooping:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">export:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">exportQuickly:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">generateSound:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">play:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">playOnChange:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">takeMasterVolumeFrom:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">toggleLooping:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -4408,6 +4714,25 @@
 							<string>NSTableView</string>
 						</object>
 					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>soundsController</string>
+							<string>soundsTable</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">soundsController</string>
+								<string key="candidateClassName">NSArrayController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">soundsTable</string>
+								<string key="candidateClassName">NSTableView</string>
+							</object>
+						</object>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">CfxrDocument.h</string>
@@ -4416,6 +4741,7 @@
 			</object>
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
+		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
 			<integer value="1050" key="NS.object.0"/>
@@ -4431,5 +4757,20 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<string key="IBDocument.LastKnownRelativeProjectPath">../cfxr.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<bool key="EncodedWithXMLCoder">YES</bool>
+			<object class="NSArray" key="dict.sortedKeys">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>NSMenuCheckmark</string>
+				<string>NSMenuMixedState</string>
+				<string>NSSwitch</string>
+			</object>
+			<object class="NSMutableArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{9, 8}</string>
+				<string>{7, 2}</string>
+				<string>{15, 15}</string>
+			</object>
+		</object>
 	</data>
 </archive>
