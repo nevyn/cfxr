@@ -345,7 +345,9 @@ static void SDLAudioCallback(Playback* userdata, Uint8 *stream, int len);
 }
 static void SDLAudioCallback(Playback *playback, Uint8 *stream, int len)
 {
+    NSAutoreleasePool *pool = [NSAutoreleasePool new];
 	[playback audioCallback:stream:len];
+    [pool release];
 }
 
 

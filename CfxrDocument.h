@@ -10,7 +10,7 @@
 #import "Playback.h"
 
 @class Sound;
-@interface CfxrDocument : NSPersistentDocument <PlaybackDelegate> {
+@interface CfxrDocument : NSPersistentDocument <PlaybackDelegate, NSTableViewDelegate> {
 	IBOutlet NSArrayController *soundsController;
 	IBOutlet NSTableView *soundsTable;
 }
