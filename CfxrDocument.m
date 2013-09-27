@@ -8,6 +8,7 @@
 
 #import "CfxrDocument.h"
 #import "Sound.h"
+#import "Sound+legacyAccessors.h"
 #import "Playback.h"
 
 NSString *CfxrSoundPBoardType = @"CfxrSoundPBoardType";
@@ -187,6 +188,56 @@ NSString *CfxrSoundPBoardType = @"CfxrSoundPBoardType";
 	[generalPasteboard setData:copyData forType:CfxrSoundPBoardType];
 	[generalPasteboard setString:[copyStringsArray componentsJoinedByString:@"\n"] forType:NSStringPboardType];
 }
+
+// Special copy variant, builds string in format ready for usfxr
+// See https://github.com/zeh/usfxr
+- (IBAction)copyForUsfxr:(id)sender
+{
+	NSArray *selectedObjects = [soundsController selectedObjects];
+	NSUInteger count = [selectedObjects count];
+	if (count == 0) return;
+    
+	NSMutableArray *copyObjectsArray = [NSMutableArray arrayWithCapacity:count];
+	NSMutableArray *copyStringsArray = [NSMutableArray arrayWithCapacity:count];
+	
+	for (Sound *s in selectedObjects)
+	{
+		[copyObjectsArray addObject:[s dictionaryRepresentation]];
+        NSString *description = [NSString stringWithFormat:@"%d,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f",
+                                 s.wave_type,
+                                 s.p_env_attack,
+                                 s.p_env_sustain,
+                                 s.p_env_punch,
+                                 s.p_env_decay,
+                                 s.p_base_freq,
+                                 s.p_freq_limit,
+                                 s.p_freq_ramp,
+                                 s.p_freq_dramp,
+                                 s.p_vib_strength,
+                                 s.p_vib_speed,
+                                 s.p_arp_mod,
+                                 s.p_arp_speed,
+                                 s.p_duty,
+                                 s.p_duty_ramp,
+                                 s.p_repeat_speed,
+                                 s.p_pha_offset,
+                                 s.p_pha_ramp,
+                                 s.p_lpf_freq,
+                                 s.p_lpf_ramp,
+                                 s.p_lpf_resonance,
+                                 s.p_hpf_freq,
+                                 s.p_hpf_ramp,
+                                 s.sound_vol];
+		[copyStringsArray addObject:description];
+	}
+	
+	NSPasteboard *generalPasteboard = [NSPasteboard generalPasteboard];
+	[generalPasteboard declareTypes:[NSArray arrayWithObjects:CfxrSoundPBoardType, NSStringPboardType, nil] owner:self];
+	NSData *copyData = [NSKeyedArchiver archivedDataWithRootObject:copyObjectsArray];
+	[generalPasteboard setData:copyData forType:CfxrSoundPBoardType];
+	[generalPasteboard setString:[copyStringsArray componentsJoinedByString:@"\n"] forType:NSStringPboardType];
+}
+
 - (IBAction) paste:(id) sender
 {
 	NSPasteboard *generalPasteboard = [NSPasteboard generalPasteboard];
