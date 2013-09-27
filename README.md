@@ -14,3 +14,8 @@ tested.
 
 Follow the instructions in the dmg file containting the SDL framework, copying
 it to your /Library/Frameworks directory.
+
+Compatibility
+-------------
+cfxr is known to build with Xcode versions as recent as 5.0, and should be
+deployable as far back as OS X 10.5.
