@@ -10,7 +10,7 @@
 #import "common.h"
 
 @implementation Sound
-+(int)countInContext:(NSManagedObjectContext*)moc;
++(NSUInteger)countInContext:(NSManagedObjectContext*)moc;
 {
 	NSEntityDescription *entityDescription = [NSEntityDescription
 											  entityForName:@"Sound" inManagedObjectContext:moc];
