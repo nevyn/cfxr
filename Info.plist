@@ -35,6 +35,8 @@
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleGetInfoString</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>CFBundleIconFile</key>
 	<string>cfxr</string>
 	<key>CFBundleIdentifier</key>
@@ -45,6 +47,8 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>3rdC</string>
 	<key>CFBundleVersion</key>
