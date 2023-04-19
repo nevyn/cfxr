@@ -8,7 +8,7 @@
 
 #import "Playback.h"
 
-#import <SDL/SDL.h>
+#import <SDL2/SDL.h>
 #import "common.h"
 
 static Playback *playback;
